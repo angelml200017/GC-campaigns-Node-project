@@ -1,0 +1,11 @@
+{
+  "name": "poc-gc-campaigns",
+  "version": "1.0.0",
+  "description": "Poc for gc-campaigns sync",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martin",
+  "license": "ISC"
+}
