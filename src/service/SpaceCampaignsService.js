@@ -27,7 +27,7 @@ class SpaceCampaignsService {
 
     updateCampaign(campaign) {
         // TODO: implement saveCampaign logic
-        throw new Error("Unimplemented method 'saveCampaign'");
+        console.log(`[SIM] Campaign updated -> id: ${campaign.id}, name: ${campaign.name}, status: ${campaign.status}, priority: ${campaign.priority}`);
     }
 }
 

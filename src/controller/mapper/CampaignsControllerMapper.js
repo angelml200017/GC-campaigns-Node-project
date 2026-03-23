@@ -1,4 +1,4 @@
-const CampaignsRequestDetails = require('../../facade/dto/CampaignsRequestDetails');
+const CampaignsRequestDetails = require('../../facade/dto/CampaignsRequestDetails.js');
 
 const CampaignsControllerMapper = {
     toCampaignsRequest(request) {
