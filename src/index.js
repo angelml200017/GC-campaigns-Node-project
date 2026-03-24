@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 // Route for campaigns controller
 app.use('/', campaignsController);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = server;
