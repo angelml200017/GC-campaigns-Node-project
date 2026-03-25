@@ -7,7 +7,7 @@
     {
       "ids": ["1200000030", "cc64e864-fac7-ec11-a7b5-000d3a20bf8b"],
       "status": 204,
-      "latencyMs": 1200000
+      "latencyMs": 60000
     },
     {
       "ids": ["128813711", "b24d7bfd-dbf9-ef11-bae2-0022488480ad"],
