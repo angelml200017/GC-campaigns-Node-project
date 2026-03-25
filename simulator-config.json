@@ -5,52 +5,57 @@
   },
   "scenarios": [
     {
-      "ids": ["customer-204", "00000000-0000-0000-0000-000000000001"],
+      "ids": ["1200000030", "cc64e864-fac7-ec11-a7b5-000d3a20bf8b"],
+      "status": 204,
+      "latencyMs": 1200000
+    },
+    {
+      "ids": ["128813711", "b24d7bfd-dbf9-ef11-bae2-0022488480ad"],
+      "status": 204,
+      "latencyMs": 30000
+    },
+    {
+      "ids": ["1200000001", "48f126e3-a467-f011-bec3-7c1e5251ec70"],
       "status": 204,
       "latencyMs": 200
     },
     {
-      "ids": ["customer-204-slow", "00000000-0000-0000-0000-000000000002"],
-      "status": 204,
-      "latencyMs": 3000
-    },
-    {
-      "ids": ["customer-401", "00000000-0000-0000-0000-000000000003"],
-      "status": 401,
-      "errorCode": "UNAUTHORIZED",
-      "message": "Unauthorized",
-      "latencyMs": 100
-    },
-    {
-      "ids": ["customer-403", "00000000-0000-0000-0000-000000000004"],
-      "status": 403,
-      "errorCode": "FORBIDDEN",
-      "message": "You do not have permission to perform this action",
-      "latencyMs": 100
-    },
-    {
-      "ids": ["customer-404", "00000000-0000-0000-0000-000000000005"],
+      "ids": ["1030305772", "c7763b32-ffc7-ec11-a7b5-000d3a20bf8b"],
       "status": 404,
       "errorCode": "CUSTOMER_NOT_FOUND",
       "message": "The customer could not be found",
       "latencyMs": 200
     },
     {
-      "ids": ["customer-412", "00000000-0000-0000-0000-000000000006"],
+      "ids": ["1033489160", "97154e1b-b4ca-ec11-a7b5-000d3a20bf8b"],
+      "status": 401,
+      "errorCode": "UNAUTHORIZED",
+      "message": "Unauthorized",
+      "latencyMs": 100
+    },
+    {
+      "ids": ["1030309082", "84dd3366-bdca-ec11-a7b5-000d3a20bf8b"],
+      "status": 403,
+      "errorCode": "FORBIDDEN",
+      "message": "You do not have permission to perform this action",
+      "latencyMs": 100
+    },
+    {
+      "ids": ["1030309270", "0ff6da20-c1ca-ec11-a7b5-000d3a20bf8b"],
       "status": 412,
       "errorCode": "SYNC_PRECONDITION_FAILED",
       "message": "Sync could not be completed due to unmet preconditions",
       "latencyMs": 500
     },
     {
-      "ids": ["customer-500", "00000000-0000-0000-0000-000000000007"],
+      "ids": ["1033706126", "faaee194-ccca-ec11-a7b5-000d3a20bf8b"],
       "status": 500,
       "errorCode": "THIRD_PARTY_SERVICE_UNAVAILABLE",
       "message": "Downstream services are unavailable",
       "latencyMs": 30000
     },
     {
-      "ids": ["customer-500-generic", "00000000-0000-0000-0000-000000000008"],
+      "ids": ["1035539089", "53a12e38-4a2f-f011-8c4d-000d3a4722bb"],
       "status": 500,
       "errorCode": "GENERIC_ERROR",
       "message": "An error occurred, please try again later",

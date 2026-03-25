@@ -35,16 +35,17 @@ Unconfigured IDs fall back to the `default` scenario (204, 200ms).
 
 ### Included Scenarios
 
-| # | customerId | contactId (UUID) | Status | Latency |
-|---|------------|-------------------|--------|---------|
-| 1 | `customer-204` | `00000000-0000-0000-0000-000000000001` | 204 | 200ms |
-| 2 | `customer-204-slow` | `00000000-0000-0000-0000-000000000002` | 204 | 3s |
-| 3 | `customer-401` | `00000000-0000-0000-0000-000000000003` | 401 | 100ms |
-| 4 | `customer-403` | `00000000-0000-0000-0000-000000000004` | 403 | 100ms |
-| 5 | `customer-404` | `00000000-0000-0000-0000-000000000005` | 404 | 200ms |
-| 6 | `customer-412` | `00000000-0000-0000-0000-000000000006` | 412 | 500ms |
-| 7 | `customer-500` | `00000000-0000-0000-0000-000000000007` | 500 | 30s |
-| 8 | `customer-500-generic` | `00000000-0000-0000-0000-000000000008` | 500 | 1s |
+| # | customerId | contactId (UUID) | Status | Latency | Description |
+|---|------------|-------------------|--------|---------|-------------|
+| 1 | `1200000030` | `cc64e864-fac7-ec11-a7b5-000d3a20bf8b` | 204 | 20min | Latency > 60s |
+| 2 | `128813711` | `b24d7bfd-dbf9-ef11-bae2-0022488480ad` | 204 | 30s | Latency 30s |
+| 3 | `1200000001` | `48f126e3-a467-f011-bec3-7c1e5251ec70` | 204 | 200ms | Success |
+| 4 | `1030305772` | `c7763b32-ffc7-ec11-a7b5-000d3a20bf8b` | 404 | 200ms | Customer not found |
+| 5 | `1033489160` | `97154e1b-b4ca-ec11-a7b5-000d3a20bf8b` | 401 | 100ms | Unauthorized |
+| 6 | `1030309082` | `84dd3366-bdca-ec11-a7b5-000d3a20bf8b` | 403 | 100ms | Forbidden |
+| 7 | `1030309270` | `0ff6da20-c1ca-ec11-a7b5-000d3a20bf8b` | 412 | 500ms | Sync precondition failed |
+| 8 | `1033706126` | `faaee194-ccca-ec11-a7b5-000d3a20bf8b` | 500 | 30s | Third party unavailable |
+| 9 | `1035539089` | `53a12e38-4a2f-f011-8c4d-000d3a4722bb` | 500 | 1s | Generic error |
 
 To add or modify scenarios, edit `simulator-config.json` and restart the service.
 
@@ -61,17 +62,17 @@ make clean    # Remove node_modules
 ## Usage Examples
 
 ```bash
-# Quick success (204, ~200ms)
-curl -v -X POST http://localhost:3000/v1/customers/customer-204/offers/sync
+# Success (204, ~200ms)
+curl -v -X POST http://localhost:3000/v1/customers/1200000001/offers/sync
 
-# Slow success (204, ~3s)
-curl -v -X POST http://localhost:3000/v1/customers/customer-204-slow/offers/sync
+# 30s latency (204)
+curl -v -X POST http://localhost:3000/v1/customers/128813711/offers/sync
 
-# 404 error
-curl -s -X POST http://localhost:3000/v1/customers/customer-404/offers/sync
+# 404 Customer not found
+curl -s -X POST http://localhost:3000/v1/customers/1030305772/offers/sync
 
 # Same scenario via contactId UUID
-curl -s -X POST http://localhost:3000/v1/contacts/00000000-0000-0000-0000-000000000005/offers/sync
+curl -s -X POST http://localhost:3000/v1/contacts/97154e1b-b4ca-ec11-a7b5-000d3a20bf8b/offers/sync
 
 # Unknown ID → default (204, 200ms)
 curl -v -X POST http://localhost:3000/v1/customers/any-id/offers/sync
@@ -79,7 +80,7 @@ curl -v -X POST http://localhost:3000/v1/customers/any-id/offers/sync
 
 ## Tests
 
-17 integration tests using the Node.js native test runner (no extra dependencies):
+Integration tests using the Node.js native test runner (no extra dependencies):
 
 ```bash
 npm test
